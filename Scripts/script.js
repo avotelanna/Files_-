@@ -104,3 +104,52 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
 });
 
+// ===== ОТПРАВКА ФОРМЫ ЧЕРЕЗ EMAILJS =====
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Подключение EmailJS
+  emailjs.init({
+    publicKey: 'pHMU9xSm3Af9ciksY'
+  });
+
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('.contact-submit');
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'ОТПРАВКА...';
+    formStatus.textContent = '';
+
+    emailjs.send('service_hat924d
+', 'template_x6l7ltj', {
+      from_name: contactForm.elements['from_name'].value,
+      from_email: contactForm.elements['from_email'].value,
+      subject: contactForm.elements['subject'].value,
+      message: contactForm.elements['message'].value
+    })
+    .then(() => {
+      formStatus.textContent = 'Сообщение успешно отправлено!';
+      formStatus.style.color = '#baff00';
+      contactForm.reset();
+    })
+    .catch((error) => {
+      console.error('Ошибка отправки:', error);
+      formStatus.textContent = 'Не удалось отправить сообщение. Попробуйте ещё раз.';
+      formStatus.style.color = '#ff00a0';
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = 'ОТПРАВИТЬ';
+    });
+
+  });
+
+});
+
