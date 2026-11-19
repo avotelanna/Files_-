@@ -127,8 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.textContent = 'ОТПРАВКА...';
     formStatus.textContent = '';
 
-    emailjs.send('service_hat924d
-', 'template_x6l7ltj', {
+    emailjs.send('service_hat924d', 'template_x6l7ltj', {
       from_name: contactForm.elements['from_name'].value,
       from_email: contactForm.elements['from_email'].value,
       subject: contactForm.elements['subject'].value,
