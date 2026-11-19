@@ -521,3 +521,106 @@ z-index: 1;
   pointer-events: none; 
    z-index: 0; 
 }
+
+
+/* ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== */
+
+.contact-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.contact-wrapper {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-title {
+  font-family: 'Widock TRIAL', sans-serif;
+  font-size: 40px;
+  color: #ff00a0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.contact-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #1c1c1c;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 18px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #baff00;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-submit {
+  background: #baff00;
+  color: black;
+  border: none;
+  padding: 17px;
+  border-radius: 60px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-submit:hover {
+  background: #5a0099;
+  color: white;
+}
+
+#form-status {
+  text-align: center;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-description {
+    font-size: 15px;
+  }
+}
